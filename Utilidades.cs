@@ -34,15 +34,5 @@ namespace Empleados4G
 
             return MessageBox.Show(mensaje,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
-
-        //public static class TipoDeSangre
-        //{
-        //    public static String O_Positivo { get { return "O+"; } }
-        //    public static String O_Negativo { get { return "O-"; } }
-        //    public static String A_Positivo { get { return "A+"; } }
-        //    public static String A_Negativo { get { return "A-"; } }
-        //    public static String AB_Positivo { get { return "AB+"; } }
-        //    public static String AB_Negativo { get { return "AB-"; } }
-        //}
     }
 }

@@ -31,7 +31,6 @@ namespace Empleados4G.Views.Empleados
         {
             this.IdUsuario = ID;
             InitializeComponent();
-
         }
 
         private void frmEmpleado_Load(object sender, EventArgs e)
@@ -80,10 +79,6 @@ namespace Empleados4G.Views.Empleados
                 else
                 {
                     btnAceptar.Text = "Editar";
-                }
-
-                if (IdUsuario != -1)
-                {
                     Empleado iEmpleado = new Empleado();
                     iEmpleado = DA.RecuperarEmpleadoPorID(IdUsuario);
 
@@ -135,7 +130,7 @@ namespace Empleados4G.Views.Empleados
             {
                 if (string.IsNullOrEmpty(nombre))
                     throw new Exception("Debe ingresar un nombre.");
-                if (string.IsNullOrEmpty(cedula))
+                if (string.IsNullOrEmpty(cedula) || cedula == "0")
                     throw new Exception("Debe ingresar una cédula.");
                 if (tipoSangre.Contains("Seleccione"))
                     throw new Exception("Debe seleccionar un tipo de sangre.");
