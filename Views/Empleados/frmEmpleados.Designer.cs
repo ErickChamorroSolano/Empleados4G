@@ -105,6 +105,7 @@
             this.btnExportar.TabIndex = 21;
             this.btnExportar.Text = "Exportar XLS";
             this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // frmEmpleados
             // 

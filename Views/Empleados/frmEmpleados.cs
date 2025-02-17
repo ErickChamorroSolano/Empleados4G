@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Empleados4G.DataAccess;
 using Empleados4G.Views.Empleados;
+using OfficeOpenXml;
+using System.IO;
 
 namespace Empleados4G.Views
 {
@@ -103,6 +105,55 @@ namespace Empleados4G.Views
                 else
                 {
                     throw new Exception("Debe seleccionar un registro a eliminar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                util.notificacion(ex);
+            }
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvEmpleados.Rows.Count > 0)
+                {
+                    ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                    using (ExcelPackage excelPackage = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Empleados");
+
+                        for (int i = 1; i <= gvEmpleados.Columns.Count; i++)
+                        {
+                            worksheet.Cells[1, i].Value = gvEmpleados.Columns[i - 1].HeaderText;
+                        }
+
+                        for (int i = 0; i < gvEmpleados.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < gvEmpleados.Columns.Count; j++)
+                            {
+                                worksheet.Cells[i + 2, j + 1].Value = gvEmpleados.Rows[i].Cells[j].Value?.ToString();
+                            }
+                        }
+
+                        SaveFileDialog saveFileDialog = new SaveFileDialog
+                        {
+                            Filter = "Excel files (*.xlsx)|*.xlsx",
+                            FileName = "Empleados.xlsx"
+                        };
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
+                            excelPackage.SaveAs(fileInfo);
+                            MessageBox.Show("Datos exportados correctamente a " + fileInfo.FullName);
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("No hay datos para exportar.");
                 }
             }
             catch (Exception ex)
