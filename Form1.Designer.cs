@@ -39,12 +39,12 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.txtPasswordReg = new System.Windows.Forms.TextBox();
             this.lblConfirmarPassword = new System.Windows.Forms.Label();
-            this.lblUsuario2 = new System.Windows.Forms.Label();
+            this.lblUsuarioReg = new System.Windows.Forms.Label();
             this.lblIniciarSesion = new System.Windows.Forms.Label();
             this.txtUsuarioReg = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
-            this.lblPaswwordReg = new System.Windows.Forms.Label();
+            this.lblPasswordReg = new System.Windows.Forms.Label();
             this.cbRol = new System.Windows.Forms.ComboBox();
             this.pnlLogin.SuspendLayout();
             this.pnlRegistrar.SuspendLayout();
@@ -144,12 +144,12 @@
             this.pnlRegistrar.Controls.Add(this.lblRol, 0, 6);
             this.pnlRegistrar.Controls.Add(this.txtPasswordReg, 0, 3);
             this.pnlRegistrar.Controls.Add(this.lblConfirmarPassword, 0, 4);
-            this.pnlRegistrar.Controls.Add(this.lblUsuario2, 0, 0);
+            this.pnlRegistrar.Controls.Add(this.lblUsuarioReg, 0, 0);
             this.pnlRegistrar.Controls.Add(this.lblIniciarSesion, 0, 9);
             this.pnlRegistrar.Controls.Add(this.txtUsuarioReg, 0, 1);
             this.pnlRegistrar.Controls.Add(this.btnRegistrar, 0, 8);
             this.pnlRegistrar.Controls.Add(this.txtConfirmPassword, 0, 5);
-            this.pnlRegistrar.Controls.Add(this.lblPaswwordReg, 0, 2);
+            this.pnlRegistrar.Controls.Add(this.lblPasswordReg, 0, 2);
             this.pnlRegistrar.Controls.Add(this.cbRol, 0, 7);
             this.pnlRegistrar.Location = new System.Drawing.Point(53, 44);
             this.pnlRegistrar.Name = "pnlRegistrar";
@@ -199,15 +199,15 @@
             this.lblConfirmarPassword.TabIndex = 9;
             this.lblConfirmarPassword.Text = "Confirmar Contraseña";
             // 
-            // lblUsuario2
+            // lblUsuarioReg
             // 
-            this.lblUsuario2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblUsuario2.AutoSize = true;
-            this.lblUsuario2.Location = new System.Drawing.Point(175, 2);
-            this.lblUsuario2.Name = "lblUsuario2";
-            this.lblUsuario2.Size = new System.Drawing.Size(54, 16);
-            this.lblUsuario2.TabIndex = 0;
-            this.lblUsuario2.Text = "Usuario";
+            this.lblUsuarioReg.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblUsuarioReg.AutoSize = true;
+            this.lblUsuarioReg.Location = new System.Drawing.Point(175, 2);
+            this.lblUsuarioReg.Name = "lblUsuarioReg";
+            this.lblUsuarioReg.Size = new System.Drawing.Size(54, 16);
+            this.lblUsuarioReg.TabIndex = 0;
+            this.lblUsuarioReg.Text = "Usuario";
             // 
             // lblIniciarSesion
             // 
@@ -252,15 +252,15 @@
             this.txtConfirmPassword.TabIndex = 3;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
-            // lblPaswwordReg
+            // lblPasswordReg
             // 
-            this.lblPaswwordReg.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPaswwordReg.AutoSize = true;
-            this.lblPaswwordReg.Location = new System.Drawing.Point(164, 51);
-            this.lblPaswwordReg.Name = "lblPaswwordReg";
-            this.lblPaswwordReg.Size = new System.Drawing.Size(76, 16);
-            this.lblPaswwordReg.TabIndex = 2;
-            this.lblPaswwordReg.Text = "Contraseña";
+            this.lblPasswordReg.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPasswordReg.AutoSize = true;
+            this.lblPasswordReg.Location = new System.Drawing.Point(164, 51);
+            this.lblPasswordReg.Name = "lblPasswordReg";
+            this.lblPasswordReg.Size = new System.Drawing.Size(76, 16);
+            this.lblPasswordReg.TabIndex = 2;
+            this.lblPasswordReg.Text = "Contraseña";
             // 
             // cbRol
             // 
@@ -278,6 +278,7 @@
             this.ClientSize = new System.Drawing.Size(509, 439);
             this.Controls.Add(this.pnlRegistrar);
             this.Controls.Add(this.pnlLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Empleados 4G";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -300,11 +301,11 @@
         private System.Windows.Forms.Label lblRegistrar;
         private System.Windows.Forms.TableLayoutPanel pnlLogin;
         private System.Windows.Forms.TableLayoutPanel pnlRegistrar;
-        private System.Windows.Forms.Label lblUsuario2;
+        private System.Windows.Forms.Label lblUsuarioReg;
         private System.Windows.Forms.Label lblIniciarSesion;
         private System.Windows.Forms.TextBox txtUsuarioReg;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Label lblPaswwordReg;
+        private System.Windows.Forms.Label lblPasswordReg;
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.TextBox txtPasswordReg;
         private System.Windows.Forms.Label lblConfirmarPassword;

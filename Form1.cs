@@ -21,48 +21,52 @@ namespace Empleados4G
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
-            {
-                frmEmpleados frmEmpleados = new frmEmpleados("Admin");
-                frmEmpleados.Show();
-                this.Hide();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            //DataAccess.DataAccess DA = new DataAccess.DataAccess();
-            //string usuario = txtUsuario.Text;
-            //string password = txtPassword.Text;
-
+            //Usalo para entrar sin validar
             //try
             //{
-            //    if (string.IsNullOrEmpty(usuario))
-            //        throw new Exception("Debe ingresar un usuario.");
-
-            //    if (string.IsNullOrEmpty(password))
-            //        throw new Exception("Debe ingresar una contraseña.");
-
-            //    if (DA.Login(usuario,password))
-            //    {
-            //        frmEmpleados frmEmpleados = new frmEmpleados(usuario);
-            //        frmEmpleados.Show();
-            //        this.Hide();
-            //    }
-            //    else
-            //    {
-            //        throw new Exception("Datos incorrectos o usuario no registrado.");
-            //    }
+            //    frmEmpleados frmEmpleados = new frmEmpleados("Admin");
+            //    frmEmpleados.Show();
+            //    this.Hide();
             //}
             //catch (Exception ex)
             //{
-            //    MessageBox.Show(ex.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //    MessageBox.Show(ex.Message);
             //}
+
+            DataAccess.DataAccess DA = new DataAccess.DataAccess();
+            Utilidades util = new Utilidades();
+            string usuario = txtUsuario.Text;
+            string password = txtPassword.Text;
+
+            try
+            {
+                if (string.IsNullOrEmpty(usuario))
+                    throw new Exception("Debe ingresar un usuario.");
+
+                if (string.IsNullOrEmpty(password))
+                    throw new Exception("Debe ingresar una contraseña.");
+
+                if (DA.Login(usuario, password))
+                {
+                    frmEmpleados frmEmpleados = new frmEmpleados(usuario);
+                    frmEmpleados.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    throw new Exception("Datos incorrectos o usuario no registrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                util.notificacion(ex);
+            }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             DataAccess.DataAccess DA = new DataAccess.DataAccess();
+            Utilidades util = new Utilidades();
             string usuario = txtUsuarioReg.Text.Trim();
             string password = txtPasswordReg.Text.Trim();
             string confirm = txtConfirmPassword.Text.Trim();
@@ -103,7 +107,7 @@ namespace Empleados4G
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                util.notificacion(ex);
             }
         }
 

@@ -50,16 +50,31 @@ namespace Empleados4G.Views
 
         private void frmEmpleados_Load(object sender, EventArgs e)
         {
-            lblBienvenido.Text = "Bienvenido: " + Bienvenido.ToUpper();
-            oHelper = new DataAccess.DataAccess();
-            gvEmpleados.DataSource = oHelper.RecuperarEmpleados().Tables[0];
+            try
+            {
+                lblBienvenido.Text = "Bienvenido: " + Bienvenido.ToUpper();
+                oHelper = new DataAccess.DataAccess();
+                gvEmpleados.DataSource = oHelper.RecuperarEmpleados().Tables[0];
+            }
+            catch (Exception ex)
+            {
+                util.notificacion(ex);
+                btnLogout_Click(sender,e);
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmEmpleado empleado = new frmEmpleado(-1);
-            empleado.ShowDialog();
-            frmEmpleados_Load(sender, e);
+            try
+            {
+                frmEmpleado empleado = new frmEmpleado(-1);
+                empleado.ShowDialog();
+                frmEmpleados_Load(sender, e);
+            }
+            catch (Exception ex)
+            {
+                util.notificacion(ex);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
